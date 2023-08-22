@@ -106,4 +106,10 @@ router.get("/recipesEjs", (req, res) => {
   res.render("recipes", { recipes: allRecipes });
 });
 
+// Route to render the list of category names using the EJS view
+router.get('/categoriesEjs', (req, res) => {
+    const allCategories = Object.keys(recipesData); // Get all category names
+    res.render('categories', { categories: allCategories });
+});
+
 module.exports = router;
