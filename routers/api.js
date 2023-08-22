@@ -8,7 +8,8 @@ const {
   addRecipe,
   getRecipesByCategory,
   getRecipeByName,
-  editCategory
+  editCategory,
+  editRecipe,
 } = require("../controllers/recipesController");
 
 // API endpoint to get the list of recipes
@@ -22,22 +23,60 @@ router.post(
   addCategory
 );
 // API endpoint to add a new recipe
-router.post('/recipes', [
-    body('category').notEmpty().trim().withMessage('Category is required'),
-    body('recipe.recipeName').notEmpty().trim().withMessage('Recipe name is required'),
-    body('recipe.description').notEmpty().trim().withMessage('Recipe description is required')
-], addRecipe);
+router.post(
+  "/recipes",
+  [
+    body("category").notEmpty().trim().withMessage("Category is required"),
+    body("recipe.recipeName")
+      .notEmpty()
+      .trim()
+      .withMessage("Recipe name is required"),
+    body("recipe.description")
+      .notEmpty()
+      .trim()
+      .withMessage("Recipe description is required"),
+  ],
+  addRecipe
+);
 
 // API endpoint to get recipes by category
-router.get('/categories/:category', getRecipesByCategory);
+router.get("/categories/:category", getRecipesByCategory);
 
 // API endpoint to get a single recipe by name
-router.get('/recipes/:name', getRecipeByName);
+router.get("/recipes/:name", getRecipeByName);
 
 // API endpoint to edit an existing category
-router.put('/categories/:category', [
-    param('category').notEmpty().trim().withMessage('Category name is required'),
-    body('category').notEmpty().trim().withMessage('New category name is required')
-], editCategory);
+router.put(
+  "/categories/:category",
+  [
+    param("category")
+      .notEmpty()
+      .trim()
+      .withMessage("Category name is required"),
+    body("category")
+      .notEmpty()
+      .trim()
+      .withMessage("New category name is required"),
+  ],
+  editCategory
+);
+
+// API endpoint to edit an existing recipe
+router.put(
+  "/recipes/:name",
+  [
+    param("name").notEmpty().trim().withMessage("Recipe name is required"),
+    body("category").notEmpty().trim().withMessage("Category is required"),
+    body("updatedRecipe.recipeName")
+      .notEmpty()
+      .trim()
+      .withMessage("Updated recipe name is required"),
+    body("updatedRecipe.description")
+      .notEmpty()
+      .trim()
+      .withMessage("Updated recipe description is required"),
+  ],
+  editRecipe
+);
 
 module.exports = router;
