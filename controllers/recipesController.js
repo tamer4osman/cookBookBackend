@@ -151,6 +151,19 @@ editRecipe = (req, res) => {
   res.json({ message: "Recipe updated successfully" });
 };
 
+// Controller function for deleting an existing category
+deleteCategory = (req, res) => {
+    const category = req.params.category;
+    const categories = Object.keys(recipesData);
+
+    if (!categories.includes(category)) {
+        return res.status(404).json({ error: 'Category not found' });
+    }
+
+    delete recipesData[category];
+    res.json({ message: 'Category deleted successfully' });
+};
+
 module.exports = {
   getRecipes,
   getCategories,
@@ -160,4 +173,5 @@ module.exports = {
   getRecipeByName,
   editCategory,
   editRecipe,
+  deleteCategory
 };

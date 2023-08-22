@@ -10,6 +10,7 @@ const {
   getRecipeByName,
   editCategory,
   editRecipe,
+  deleteCategory,
 } = require("../controllers/recipesController");
 
 // API endpoint to get the list of recipes
@@ -77,6 +78,18 @@ router.put(
       .withMessage("Updated recipe description is required"),
   ],
   editRecipe
+);
+
+// API endpoint to delete a category
+router.delete(
+  "/categories/:category",
+  [
+    param("category")
+      .notEmpty()
+      .trim()
+      .withMessage("Category name is required"),
+  ],
+  deleteCategory
 );
 
 module.exports = router;
