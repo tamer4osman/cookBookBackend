@@ -6,7 +6,8 @@ const {
   getCategories,
   addCategory,
   addRecipe,
-  getRecipesByCategory
+  getRecipesByCategory,
+  getRecipeByName
 } = require("../controllers/recipesController");
 
 // API endpoint to get the list of recipes
@@ -28,5 +29,8 @@ router.post('/recipes', [
 
 // API endpoint to get recipes by category
 router.get('/recipes/:category', getRecipesByCategory);
+
+// API endpoint to get a single recipe by name
+router.get('/recipes/:name', getRecipeByName);
 
 module.exports = router;

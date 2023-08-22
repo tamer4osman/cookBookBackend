@@ -69,10 +69,34 @@ getRecipesByCategory = (req, res) => {
     res.json(recipesInCategory);
 };
 
+// Controller function for getting a single recipe by name
+getRecipeByName = (req, res) => {
+    const name = req.params.name;
+    let foundRecipe = null;
+
+    // Search for the recipe in all categories
+    for (const category in recipesData) {
+        const categoryRecipes = recipesData[category];
+        const recipe = categoryRecipes.find(recipe => recipe.recipeName.toLowerCase() === name.toLowerCase());
+
+        if (recipe) {
+            foundRecipe = recipe;
+            break;
+        }
+    }
+
+    if (!foundRecipe) {
+        return res.status(404).json({ error: 'Recipe not found' });
+    }
+
+    res.json(foundRecipe);
+};
+
 module.exports = {
   getRecipes,
   getCategories,
   addCategory,
   addRecipe,
-  getRecipesByCategory
+  getRecipesByCategory,
+  getRecipeByName
 };
