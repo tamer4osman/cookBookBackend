@@ -28,7 +28,7 @@ router.post('/recipes', [
 ], addRecipe);
 
 // API endpoint to get recipes by category
-router.get('/recipes/category/:category', getRecipesByCategory);
+router.get('/categories/:category', getRecipesByCategory);
 
 // API endpoint to get a single recipe by name
 router.get('/recipes/:name', getRecipeByName);
