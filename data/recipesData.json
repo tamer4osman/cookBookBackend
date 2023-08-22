@@ -1,0 +1,143 @@
+{
+  "Pasta": [
+    {
+      "recipeName": "Spaghetti Carbonara",
+      "description": "A classic Italian pasta dish with eggs, cheese, and pancetta.",
+      "image": "https://example.com/spaghetti_carbonara_image.jpg",
+      "prepTime": "10 minutes",
+      "cookTime": "15 minutes",
+      "totalTime": "25 minutes",
+      "servings": 4,
+      "ingredients": [
+        {
+          "product": "spaghetti",
+          "amount": 12,
+          "unit": "ounces (340g)"
+        },
+        {
+          "product": "large eggs",
+          "amount": 4
+        },
+        {
+          "product": "grated Pecorino Romano cheese",
+          "amount": 1,
+          "unit": "cup"
+        },
+        {
+          "product": "pancetta",
+          "amount": 4,
+          "unit": "ounces (115g)"
+        },
+        {
+          "product": "cloves garlic",
+          "amount": 2,
+          "unit": "minced"
+        },
+        {
+          "product": "Salt",
+          "toTaste": true
+        },
+        {
+          "product": "black pepper",
+          "amount": "toTaste"
+        },
+        {
+          "product": "Chopped fresh parsley",
+          "amount": "forGarnish"
+        }
+      ],
+      "instructions": [
+        "Bring a large pot of salted water to a boil. Add the spaghetti and cook according to the package instructions until al dente. Reserve 1 cup of pasta water, then drain the pasta.",
+        "In a bowl, whisk together the eggs and grated Pecorino Romano cheese. Season with a pinch of black pepper.",
+        "In a skillet, cook the diced pancetta over medium heat until it's crispy. Add the minced garlic and cook for another 1-2 minutes until fragrant.",
+        "Add the cooked and drained spaghetti to the skillet with the pancetta and garlic. Toss to combine and heat for a minute.",
+        "Remove the skillet from heat. Quickly pour in the egg and cheese mixture while continuously tossing the pasta to create a creamy sauce. If the sauce is too thick, gradually add a bit of the reserved pasta water to reach the desired consistency.",
+        "Season with salt and additional black pepper if needed. Garnish with chopped fresh parsley.",
+        "Serve the spaghetti carbonara immediately, while it's still warm."
+      ],
+      "notes": [
+        "Be sure to work quickly when adding the egg and cheese mixture to the pasta to avoid scrambling the eggs.",
+        "You can substitute pancetta with guanciale or bacon if desired.",
+        "For a healthier version, you can use whole wheat spaghetti and reduce the amount of cheese."
+      ]
+    }
+  ],
+  "Dessert": [
+    {
+      "recipeName": "Classic Chocolate Chip Cookies",
+      "description": "Delicious homemade chocolate chip cookies that are a hit with everyone.",
+      "image": "https://example.com/chocolate_chip_cookies_image.jpg",
+      "prepTime": "15 minutes",
+      "cookTime": "10 minutes",
+      "totalTime": "25 minutes",
+      "servings": 24,
+      "ingredients": [
+        {
+          "product": "all-purpose flour",
+          "amount": 2.25,
+          "unit": "cups"
+        },
+        {
+          "product": "baking soda",
+          "amount": 1,
+          "unit": "teaspoon"
+        },
+        {
+          "product": "salt",
+          "amount": 0.5,
+          "unit": "teaspoon"
+        },
+        {
+          "product": "unsalted butter",
+          "amount": 1,
+          "unit": "cup"
+        },
+        {
+          "product": "granulated sugar",
+          "amount": 0.75,
+          "unit": "cup"
+        },
+        {
+          "product": "packed brown sugar",
+          "amount": 0.75,
+          "unit": "cup"
+        },
+        {
+          "product": "vanilla extract",
+          "amount": 1,
+          "unit": "teaspoon"
+        },
+        {
+          "product": "large eggs",
+          "amount": 2
+        },
+        {
+          "product": "chocolate chips",
+          "amount": 2,
+          "unit": "cups"
+        },
+        {
+          "product": "chopped nuts",
+          "amount": 1,
+          "unit": "cup"
+        }
+      ],
+      "instructions": [
+        "Preheat your oven to 375°F (190°C).",
+        "In a small bowl, combine the flour, baking soda, and salt.",
+        "In a large mixing bowl, beat together the softened butter, granulated sugar, packed brown sugar, and vanilla extract until creamy.",
+        "Add the eggs, one at a time, beating well after each addition.",
+        "Gradually add the flour mixture to the wet ingredients, beating until well blended.",
+        "Stir in the chocolate chips and chopped nuts (if using).",
+        "Drop rounded tablespoons of dough onto ungreased baking sheets.",
+        "Bake in the preheated oven for about 9-11 minutes, or until the cookies are golden brown.",
+        "Remove from the oven and let the cookies cool on the baking sheets for a few minutes before transferring to wire racks to cool completely."
+      ],
+      "notes": [
+        "You can use semi-sweet, milk, or dark chocolate chips based on your preference.",
+        "For extra soft cookies, slightly underbake them by a minute or so.",
+        "Feel free to customize the recipe by adding dried fruits or different types of nuts."
+      ]
+    }
+  ]
+}

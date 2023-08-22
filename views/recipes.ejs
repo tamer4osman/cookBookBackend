@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Recipes List</title>
+</head>
+
+<body>
+    <h1>Recipes List</h1>
+    <ul>
+        <% recipes.Pasta.forEach(recipe=> { %>
+            <li>
+                <%= recipe.recipeName %>
+            </li>
+            <% }); %>
+                <% recipes.Dessert.forEach(recipe=> { %>
+                    <li>
+                        <%= recipe.recipeName %>
+                    </li>
+                    <% }); %>
+    </ul>
+</body>
+
+</html>
