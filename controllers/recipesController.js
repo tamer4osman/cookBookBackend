@@ -56,9 +56,23 @@ addRecipe = (req, res) => {
     res.status(201).json({ message: 'Recipe added successfully' });
 };
 
+// Controller function for getting recipes by category
+getRecipesByCategory = (req, res) => {
+    const category = req.params.category;
+    const categories = Object.keys(recipesData);
+
+    if (!categories.includes(category)) {
+        return res.status(404).json({ error: 'Category not found' });
+    }
+
+    const recipesInCategory = recipesData[category];
+    res.json(recipesInCategory);
+};
+
 module.exports = {
   getRecipes,
   getCategories,
   addCategory,
-  addRecipe
+  addRecipe,
+  getRecipesByCategory
 };

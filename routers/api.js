@@ -27,6 +27,6 @@ router.post('/recipes', [
 ], addRecipe);
 
 // API endpoint to get recipes by category
-router.get('/recipes/:category', recipesController.getRecipesByCategory);
+router.get('/recipes/:category', getRecipesByCategory);
 
 module.exports = router;
