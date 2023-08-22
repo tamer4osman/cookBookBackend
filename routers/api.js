@@ -112,4 +112,17 @@ router.get('/categoriesEjs', (req, res) => {
     res.render('categories', { categories: allCategories });
 });
 
+// Route to render the list of recipe names by category using the EJS view
+router.get('/recipesCategoryEjs', (req, res) => {
+    const recipesByCategory = {};
+
+    for (const category in recipesData) {
+        recipesByCategory[category] = recipesData[category].map(recipe => {
+            return { recipeName: recipe.recipeName };
+        });
+    }
+
+    res.render('recipesByCategory', { recipesByCategory });
+});
+
 module.exports = router;
