@@ -100,4 +100,10 @@ router.delete(
   deleteRecipe
 );
 
+router.get("/recipesEjs", (req, res) => {
+  // Assuming your recipesData is accessible here
+  const allRecipes = Object.values(recipesData).flat(); // Flatten the recipes from all categories
+  res.render("recipes", { recipes: allRecipes });
+});
+
 module.exports = router;
