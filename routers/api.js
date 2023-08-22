@@ -1,13 +1,14 @@
 const express = require("express");
 const router = express.Router();
-const { body } = require("express-validator");
+const { body, param } = require("express-validator");
 const {
   getRecipes,
   getCategories,
   addCategory,
   addRecipe,
   getRecipesByCategory,
-  getRecipeByName
+  getRecipeByName,
+  editCategory
 } = require("../controllers/recipesController");
 
 // API endpoint to get the list of recipes
@@ -32,5 +33,11 @@ router.get('/categories/:category', getRecipesByCategory);
 
 // API endpoint to get a single recipe by name
 router.get('/recipes/:name', getRecipeByName);
+
+// API endpoint to edit an existing category
+router.put('/categories/:category', [
+    param('category').notEmpty().trim().withMessage('Category name is required'),
+    body('category').notEmpty().trim().withMessage('New category name is required')
+], editCategory);
 
 module.exports = router;

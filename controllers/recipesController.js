@@ -92,11 +92,35 @@ getRecipeByName = (req, res) => {
     res.json(foundRecipe);
 };
 
+// Controller function for editing an existing category
+editCategory = (req, res) => {
+    const category = req.params.category;
+    const newCategoryName = req.body.category.trim();
+    const categories = Object.keys(recipesData);
+
+    if (!categories.includes(category)) {
+        return res.status(404).json({ error: 'Category not found' });
+    }
+
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+        return res.status(400).json({ errors: errors.array() });
+    }
+
+    // Update the category name
+    recipesData[newCategoryName] = recipesData[category];
+    delete recipesData[category];
+
+    res.json({ message: 'Category updated successfully' });
+};
+
 module.exports = {
   getRecipes,
   getCategories,
   addCategory,
   addRecipe,
   getRecipesByCategory,
-  getRecipeByName
+  getRecipeByName,
+  editCategory
 };
