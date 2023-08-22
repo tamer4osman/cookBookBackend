@@ -153,15 +153,43 @@ editRecipe = (req, res) => {
 
 // Controller function for deleting an existing category
 deleteCategory = (req, res) => {
-    const category = req.params.category;
-    const categories = Object.keys(recipesData);
+  const category = req.params.category;
+  const categories = Object.keys(recipesData);
 
-    if (!categories.includes(category)) {
-        return res.status(404).json({ error: 'Category not found' });
+  if (!categories.includes(category)) {
+    return res.status(404).json({ error: "Category not found" });
+  }
+
+  delete recipesData[category];
+  res.json({ message: "Category deleted successfully" });
+};
+
+// Controller function for deleting an existing recipe
+deleteRecipe = (req, res) => {
+  const recipeName = req.params.name;
+  let foundCategory = null;
+  let foundRecipeIndex = -1;
+
+  // Search for the recipe in all categories
+  for (const category in recipesData) {
+    const categoryRecipes = recipesData[category];
+    const recipeIndex = categoryRecipes.findIndex(
+      (recipe) => recipe.recipeName.toLowerCase() === recipeName.toLowerCase()
+    );
+
+    if (recipeIndex !== -1) {
+      foundCategory = category;
+      foundRecipeIndex = recipeIndex;
+      break;
     }
+  }
 
-    delete recipesData[category];
-    res.json({ message: 'Category deleted successfully' });
+  if (!foundCategory || foundRecipeIndex === -1) {
+    return res.status(404).json({ error: "Recipe not found" });
+  }
+
+  recipesData[foundCategory].splice(foundRecipeIndex, 1);
+  res.json({ message: "Recipe deleted successfully" });
 };
 
 module.exports = {
@@ -173,5 +201,6 @@ module.exports = {
   getRecipeByName,
   editCategory,
   editRecipe,
-  deleteCategory
+  deleteCategory,
+  deleteRecipe,
 };
